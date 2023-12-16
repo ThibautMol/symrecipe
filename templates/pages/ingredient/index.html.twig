@@ -24,23 +24,23 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                <th scope="col">Numéro</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Date de création</th>
-                <th scope="col">Édition</th>
-                <th scope="col">Suppression</th>
+                <th class="text-center" scope="col">Numéro</th>
+                <th class="text-center" scope="col">Nom</th>
+                <th class="text-center" scope="col">Prix</th>
+                <th class="text-center" scope="col">Date de création</th>
+                <th class="text-center" scope="col">Édition</th>
+                <th class="text-center" scope="col">Suppression</th>
                 </tr>
             </thead>
             <tbody>
                 {% for ingredient in ingredients %}
                     <tr class="table-primary">
-                        <th scope="row">{{ ingredient.id }}</th>
-                        <td>{{ ingredient.name }}</td>
-                        <td>{{ ingredient.price }}</td>
-                        <td>{{ ingredient.createdAt|date('d/m/y') }}</td>
-                        <td><a href="{{ path('ingredient.edit',{id : ingredient.id})}}" class="btn btn-info">Modifier</a></td>
-                        <td><a href="{{ path('ingredient.delete',{id : ingredient.id})}}" class="btn btn-warning">Supprimer</a></td>
+                        <th class="text-center" scope="row">{{ ingredient.id }}</th>
+                        <td class="text-center" >{{ ingredient.name }}</td>
+                        <td class="text-center" >{{ ingredient.price }}</td>
+                        <td class="text-center" >{{ ingredient.createdAt|date('d/m/y') }}</td>
+                        <td class="text-center" ><a href="{{ path('ingredient.edit',{id : ingredient.id})}}" class="btn btn-info">Modifier</a></td>
+                        <td class="text-center" ><a href="{{ path('ingredient.delete',{id : ingredient.id})}}" class="btn btn-warning">Supprimer</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
