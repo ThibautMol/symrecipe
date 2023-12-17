@@ -22,6 +22,8 @@ class AppFixtures extends Fixture
      */
     private Generator $faker;
 
+    private UserPasswordHasherInterface $hasher;
+
     public function __construct()
     {
         $this->faker = Factory::create('fr_FR');
@@ -61,6 +63,23 @@ class AppFixtures extends Fixture
             }
 
             $manager->persist($recipe);
+        }
+
+        // Users
+
+        for ($i = 0; $i < 10; $i++)
+        {
+            $user= new User();
+            $user->setFullName($this->faker->name())
+            ->setPseudo(mt_rand(0,1) === 1 ? $this->faker->firstName() : null)
+            ->setEmail($this->faker->email())
+            ->setRoles(['ROLE_USER'])
+            ->setPlainPassword('password');
+
+
+
+            $manager->persist($user);
+
         }
 
         $manager->flush();
