@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symrecipe - Inscription{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h1 class="mt-4">Formulaire d'inscription</h1>
+
+    {# {% if error %}
+        <div class="alert alert-danger mt-4">
+            {{ error.messageKey|trans(error.messageData, 'security')}}
+        </div>
+    {% endif %} #}
+
+    {{ form_start(form) }}
+
+    {{ form_end(form) }}
+
+{% endblock %}

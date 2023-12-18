@@ -36,7 +36,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column(type:'string')]
     #[Assert\NotBlank]
-    private ?string $password;
+    private ?string $password = 'password';
 
     #[ORM\Column(type:'string', length: 50)]
     #[Assert\NotBlank]
@@ -170,7 +170,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setPlainPassword($plainPassword)
     {
-        $this->createdAt = $plainPassword;
+        $this->plainPassword = $plainPassword;
 
         return $this;
     }
